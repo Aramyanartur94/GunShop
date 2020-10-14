@@ -1,0 +1,12 @@
+<h2>Ножи:</h2>
+
+<% @results.each do |knife| %>
+	<p>
+	Нож: <%= knife['nameknife'] %>
+	<br />
+	Дата изготовления <%= knife['created_date'] %>
+	<br />
+	Описание: <%= knife['description'] %>
+	<a href="/details/<%= knife['id'] %>">Отзывы</a>
+	</p>
+<% end %>

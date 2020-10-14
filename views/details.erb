@@ -1,0 +1,27 @@
+<h4>Post details:</h4>
+<p>
+	<%= @row['nameknife'] %>
+	<br />
+	<br />
+	Added at <%= @row['created_date'] %>		
+</p>
+<br />
+<h4>Comments</h4>
+<br />
+<% @comments.each do |comment| %>
+	<p>
+			<%= comment['comment'] %>
+			<span style="dont-size: 75%; color: #999"> <%= comment['comment'] %></span>
+			<br/>
+			<br/>
+			<span style="dont-size: 75%; color: #999">Added at <%= comment['created_date'] %></span>	 
+	</p>
+	<hr />
+<% end %>
+<p>
+	<form action="/details/<%= @row['id'] %>" method="POST" role="form">
+	<textarea name="comment" class="form-control" style="width: 600px" rows="6" placeholder="Type comment text here"></textarea>
+	<br/>
+	<button type="submit" class="btn btn-primary">Add comment</button>
+	</form>
+</p>
