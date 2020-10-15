@@ -59,9 +59,16 @@ end
 
 post '/add' do
 	nameknife = params[:nameknife]
+	if nameknife.length <= 0
+		@error = 'Название товара'
+		return erb :add
+	end
 		
 	description = params[:description]
-	
+	if description.length <= 0
+		@error = 'Введите описание товара'
+		return erb :add
+	end
 	@db.execute 'Insert into Knifes (nameknife, created_date, description) values (?, datetime(), ?)', [nameknife, description]
 	redirect to '/'
 end
